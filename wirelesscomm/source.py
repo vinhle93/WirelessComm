@@ -59,7 +59,7 @@ class Source():
         else:
             self.generated_frame = zeros(self.frame_size, dtype=int)
         if self.have_sink:
-            self.sink.set_origin_frame(self.generated_frame)
+            self.sink.receive_origin_frame(self.generated_frame)
         return self.generated_frame
 
     def get_generated_frame(self):

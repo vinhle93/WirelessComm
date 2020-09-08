@@ -1,4 +1,10 @@
+"""
 
+A simple test for the synchronization between source and sink
+
+source generates -> sink obtains the origin frame
+
+"""
 
 from wirelesscomm.source import Source
 from wirelesscomm.sink import Sink
