@@ -60,8 +60,6 @@ else:
 print(theoretical_BER)
 
 
-fig = plt.figure(1)
-fig.clear()
 plt.semilogy(EbN0dB,BER,'-ro',label='Monte-Carlo')
 plt.semilogy(EbN0dB,theoretical_BER,'-bo',label='Theoretical')
 plt.title(modem.modem_name + " bit error rate")
