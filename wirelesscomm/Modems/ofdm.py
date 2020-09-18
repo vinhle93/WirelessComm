@@ -39,7 +39,7 @@ class OfdmModem():
 
     def demodulate(self, input_symbols):
         # discard cyclic prefix
-        input_fft = input_symbols[self.cyclic_prefix_length:]
+        input_fft = input_symbols[self.cyclic_prefix_length : self.cyclic_prefix_length + self.fft_size]
 
         if len(input_fft) != self.fft_size:
             raise ValueError("Length of FFT input should be equal to the FFT size")
