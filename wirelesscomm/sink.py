@@ -29,7 +29,12 @@ class Sink():
         self.origin_frame = frame
 
     def receive_decoded_frame(self,frame):
-        self.decoded_frame = frame
+        if len(frame) < self.frame_size:
+            raise ValueError("Decoded frame size exceeds origin frame size")
+        elif len(frame) > self.frame_size:
+            self.decoded_frame = frame[0:self.frame_size]
+        else:
+            self.decoded_frame = frame
         if self.error_meter_activated:
             self.number_of_frames = self.number_of_frames + 1
             current_bit_errors = sum(self.origin_frame != self.decoded_frame)
@@ -40,7 +45,7 @@ class Sink():
     def deactivate_error_meter(self):
         self.error_meter_activated = False
 
-    def activate_error_meter():
+    def activate_error_meter(self):
         self.error_meter_activated = True
 
     def get_frame_size(self):
